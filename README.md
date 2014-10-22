@@ -11,5 +11,7 @@
 
 Clone the repository into de desired directory
 
-    git clone https://
+    git clone https://github.com:davegomez/converter.git
+    
+
 
