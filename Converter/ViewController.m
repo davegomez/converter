@@ -1,10 +1,24 @@
-//
 //  ViewController.m
-//  Converter
 //
-//  Created by David Gómez on 10/21/14.
-//  Copyright (c) 2014 Craft Inc. All rights reserved.
+//  Copyright (c) 2013-2014 Craft Inc (http://craftinc.co)
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "ViewController.h"
 #import "APIManager.h"
@@ -29,7 +43,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // Rounded corners for Convert button
     _convertButton.layer.cornerRadius = 5.0;
     
     // Symbols dictionary to format the output value
@@ -46,20 +59,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Button Actions
+
+/**
+ Gets the amount value to convert and the country code represented in the segmented control selected index, instantiates a formatter and sets its properties including the currency symbol using the currencySymbols for propper output value formatting, finally converts the amount to the new currency and displays it.
+ */
+
 - (IBAction)convertCurrencyAction:(id)sender {
-    // Set the amount and code strings to convert
     NSString *amount = _amountTextField.text;
     NSString *code = [_currencySegmentedControl titleForSegmentAtIndex:[_currencySegmentedControl selectedSegmentIndex]];
     
-    // Create the formatter for the output value
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencySymbol:_currencySymbols[code]];
     
-    // Convert and display the computed value
     NSString *currencyValue = [formatter stringFromNumber:[_coinPouch convertWith:amount for:code]];
     _currencyValueLabel.text = currencyValue;
 }
+
+/**
+ Fetch the latest currency values from the API and updates the coins object showing a success of fail messages depending on the completion returned by the method.
+ */
 
 - (IBAction)reloadDataAction:(id)sender {
     [_coinPouch fetchDataWithCompletionBlock:^(BOOL success) {
