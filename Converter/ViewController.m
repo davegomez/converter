@@ -47,10 +47,6 @@
 }
 
 - (IBAction)convertCurrencyAction:(id)sender {
-    [self convertCurrency];
-}
-
-- (void)convertCurrency {
     // Set the amount and code strings to convert
     NSString *amount = _amountTextField.text;
     NSString *code = [_currencySegmentedControl titleForSegmentAtIndex:[_currencySegmentedControl selectedSegmentIndex]];
@@ -65,7 +61,7 @@
     _currencyValueLabel.text = currencyValue;
 }
 
-- (IBAction)dataUpdate:(id)sender {
+- (IBAction)reloadDataAction:(id)sender {
     [_coinPouch fetchDataWithCompletionBlock:^(BOOL success) {
         if (success) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Successful Update"

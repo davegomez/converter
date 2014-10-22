@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -25,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="70" id="d1C-he-iiU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiB-zN-0JO">
                                 <rect key="frame" x="179" y="345" width="243" height="30"/>
@@ -35,9 +34,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="243" id="hNg-zU-psx"/>
                                     <constraint firstAttribute="width" constant="243" id="wdW-9d-7aq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="Convert">
-                                    <color key="titleColor" red="0.96068984270095825" green="0.96085041761398315" blue="0.96066874265670776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.98947368421052628" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -85,59 +84,33 @@
                                 <color key="textColor" red="0.53061282634735107" green="0.5310322642326355" blue="0.53067779541015625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNH-VE-5Wr">
-                                <rect key="frame" x="540" y="40" width="40" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="58L-dO-clA"/>
-                                    <constraint firstAttribute="height" constant="25" id="WH1-BO-TBv"/>
-                                </constraints>
-                                <state key="normal" image="Refresh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-jU-2Ab">
+                                <rect key="frame" x="200" y="550" width="200" height="30"/>
+                                <state key="normal" image="Reload">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dataUpdate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wvc-vc-bhI"/>
+                                    <action selector="reloadDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ng6-Ng-8Gf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Data →" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-hU-Yt9">
-                                <rect key="frame" x="434" y="42" width="98" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="dB6-XF-NLK"/>
-                                    <constraint firstAttribute="width" constant="98" id="jvW-E9-o8L"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="HiB-zN-0JO" secondAttribute="centerX" id="4rQ-wq-iXC"/>
-                            <constraint firstItem="Ycf-hU-Yt9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="5Vt-99-iQb"/>
                             <constraint firstItem="HiB-zN-0JO" firstAttribute="top" secondItem="e4F-5A-8My" secondAttribute="bottom" constant="31" id="7UH-3h-dUK"/>
                             <constraint firstItem="HiB-zN-0JO" firstAttribute="leading" secondItem="fFy-kP-V7B" secondAttribute="leading" id="7ez-pi-nsJ"/>
-                            <constraint firstItem="rNH-VE-5Wr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="8Y6-td-4m4"/>
                             <constraint firstItem="hxa-f0-LEk" firstAttribute="leading" secondItem="OsN-f6-ekg" secondAttribute="trailing" constant="8" id="FuR-Up-bUO"/>
                             <constraint firstItem="fFy-kP-V7B" firstAttribute="top" secondItem="HiB-zN-0JO" secondAttribute="bottom" constant="30" id="Hez-LO-tSq"/>
                             <constraint firstItem="e4F-5A-8My" firstAttribute="leading" secondItem="FkT-EQ-sff" secondAttribute="leading" id="HrE-UJ-Hbd"/>
                             <constraint firstItem="e4F-5A-8My" firstAttribute="top" secondItem="FkT-EQ-sff" secondAttribute="bottom" constant="8" id="I3x-yW-pwh"/>
-                            <constraint firstItem="rNH-VE-5Wr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="JhF-8R-g27"/>
-                            <constraint firstItem="Ycf-hU-Yt9" firstAttribute="top" secondItem="rNH-VE-5Wr" secondAttribute="top" constant="2" id="Jsd-Ct-flq"/>
-                            <constraint firstItem="rNH-VE-5Wr" firstAttribute="leading" secondItem="Ycf-hU-Yt9" secondAttribute="trailing" constant="8" id="K4K-Y4-8gU"/>
-                            <constraint firstItem="rNH-VE-5Wr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="LuS-tt-ooO"/>
-                            <constraint firstAttribute="trailing" secondItem="rNH-VE-5Wr" secondAttribute="trailing" constant="20" id="YQY-xk-EV3"/>
                             <constraint firstItem="FkT-EQ-sff" firstAttribute="top" secondItem="hxa-f0-LEk" secondAttribute="bottom" constant="30" id="eV2-7p-ooD"/>
                             <constraint firstItem="FkT-EQ-sff" firstAttribute="top" secondItem="OsN-f6-ekg" secondAttribute="bottom" constant="35" id="gkl-mf-Bgi"/>
                             <constraint firstItem="OsN-f6-ekg" firstAttribute="leading" secondItem="FkT-EQ-sff" secondAttribute="leading" id="gp6-Gf-qMU"/>
                             <constraint firstAttribute="centerY" secondItem="e4F-5A-8My" secondAttribute="centerY" id="qJT-Mt-Br8"/>
+                            <constraint firstAttribute="centerX" secondItem="Jsy-jU-2Ab" secondAttribute="centerX" id="rag-6D-6Fc"/>
                             <constraint firstItem="e4F-5A-8My" firstAttribute="leading" secondItem="HiB-zN-0JO" secondAttribute="leading" id="tQE-78-Coa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jsy-jU-2Ab" secondAttribute="bottom" constant="20" id="xdd-DH-dv8"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="5Vt-99-iQb"/>
-                                <exclude reference="JhF-8R-g27"/>
-                                <exclude reference="LuS-tt-ooO"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="amountTextField" destination="hxa-f0-LEk" id="Sh4-3i-asq"/>
@@ -152,6 +125,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Refresh" width="130" height="82"/>
+        <image name="Reload" width="200" height="30"/>
     </resources>
 </document>
