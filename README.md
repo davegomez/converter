@@ -1,4 +1,6 @@
-# HUGE iOS Coding Challenge
+# HUGE iOS Coding Challenge - Currency Converter
+
+
 
 ## Requirements
 
@@ -13,5 +15,7 @@ Clone the repository into de desired directory
 
     git clone https://github.com:davegomez/converter.git
     
+Install Pods for library dependencies
 
+    pod install
 
