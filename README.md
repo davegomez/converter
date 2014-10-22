@@ -1,6 +1,6 @@
 # HUGE iOS Coding Challenge - Currency Converter
 
-![Currency Converter](https://raw.githubusercontent.com/davegomez/converter/master/screenshot.png)
+![Currency Converter](https://raw.githubusercontent.com/davegomez/converter/master/currency-converter.png)
 
 ## Requirements
 
