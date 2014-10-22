@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworkActivityLogger.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Log network requests as they are sent and received using AFNetworkActivityLogger
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    
+    // Activate the app network activity indicator
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     return YES;
 }
 
