@@ -73,7 +73,7 @@
     
     // Create the formatter for the output value
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setCurrencySymbol:_currencySymbols[code]];
     
     // Convert and display the computed value
