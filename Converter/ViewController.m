@@ -81,4 +81,30 @@
     _currencyValueLabel.text = currencyValue;
 }
 
+- (IBAction)dataRefresh:(id)sender {
+    _coinPouch = [[CoinPouch alloc] initWithCompletionBlock:^(BOOL success) {
+        if (success) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Successful Update"
+                                                                                     message:@"The currency data was successfuly updated."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alertController addAction:defaultAction];
+            [self presentViewController:alertController animated:YES
+                             completion:nil];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Connection Failed"
+                                                                                     message:@"We couldn't get the currency values\n please try again later."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil];
+            [alertController addAction:defaultAction];
+            [self presentViewController:alertController animated:YES
+                             completion:nil];
+        }
+    }];
+}
+
 @end

@@ -20,7 +20,7 @@
 - (instancetype)initWithCompletionBlock:(void (^)(BOOL success))completion {
     self = [super init];
     
-    // Get the currency data from the Open Exchange Rates REST API
+    // Fetch the currency data from the Open Exchange Rates REST API
     if (self) {
         [[APIManager sharedManager] GET:@"latest.json?app_id=8d42d42070c74c04921be6e339b529b0"
                              parameters:nil
