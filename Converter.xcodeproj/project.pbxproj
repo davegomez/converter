@@ -407,9 +407,13 @@
 			baseConfigurationReference = C2667940519147618F94D52B /* Pods-Converter.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cecilia Gomez Serma (DQLR74JFYU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cecilia Gomez Serma (DQLR74JFYU)";
 				INFOPLIST_FILE = Converter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2e046d07-e14a-427a-ab43-11e2938d44d0";
 			};
 			name = Debug;
 		};
@@ -418,9 +422,13 @@
 			baseConfigurationReference = C2667940519147618F94D52B /* Pods-Converter.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cecilia Gomez Serma (DQLR74JFYU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cecilia Gomez Serma (DQLR74JFYU)";
 				INFOPLIST_FILE = Converter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2e046d07-e14a-427a-ab43-11e2938d44d0";
 			};
 			name = Release;
 		};
