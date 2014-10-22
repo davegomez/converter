@@ -1,4 +1,5 @@
-# HUGE iOS Coding Challenge - Currency Converter
+# HUGE iOS Coding Challenge
+## Currency Converter
 
 ![Currency Converter](https://raw.githubusercontent.com/davegomez/converter/master/currency-converter.png)
 
@@ -13,11 +14,11 @@
 
 Clone the repository into the desired directory.
 
-    git clone https://github.com:davegomez/converter.git
+    git clone https://github.com/davegomez/converter.git && cd converter
     
-Install Pods for library dependencies.
+Install Cocoapods and library dependencies.
 
-    pod install
+    gem install cocoapods && pod install
 
 Open the project with **Xcode 6** (or later) using the ```Converter.xcworkspace``` file and build with any device.
 
@@ -33,7 +34,7 @@ There is not sanity checking for the text field, so if you type anything differe
 
 ## The MIT License (MIT)
 
-Copyright (c) 2014 [Craft Inc](http://crafinc.co)
+Copyright (c) 2014 [Craft Inc](http://craftinc.co)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
