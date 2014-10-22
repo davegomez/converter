@@ -37,6 +37,8 @@
                          @"EUR": @"€ ",
                          @"JPY": @"¥ ",
                          @"BRL": @"$ "};
+    
+    _coinPouch = [[CoinPouch alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,26 +46,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)convertCurrency:(id)sender {
-    if (!_coinPouch) {
-        _coinPouch = [[CoinPouch alloc] initWithCompletionBlock:^(BOOL success) {
-            if (success) {
-                [self convertCurrency];
-            } else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Connection Failed"
-                                                                                         message:@"We couldn't get the currency values\n please try again later."
-                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                        style:UIAlertActionStyleDefault
-                                                                      handler:nil];
-                [alertController addAction:defaultAction];
-                [self presentViewController:alertController animated:YES
-                                 completion:nil];
-            }
-        }];
-    } else {
-        [self convertCurrency];
-    }
+- (IBAction)convertCurrencyAction:(id)sender {
+    [self convertCurrency];
 }
 
 - (void)convertCurrency {
@@ -81,8 +65,8 @@
     _currencyValueLabel.text = currencyValue;
 }
 
-- (IBAction)dataRefresh:(id)sender {
-    _coinPouch = [[CoinPouch alloc] initWithCompletionBlock:^(BOOL success) {
+- (IBAction)dataUpdate:(id)sender {
+    [_coinPouch fetchDataWithCompletionBlock:^(BOOL success) {
         if (success) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Successful Update"
                                                                                      message:@"The currency data was successfuly updated."
@@ -94,21 +78,27 @@
             [self presentViewController:alertController animated:YES
                              completion:nil];
         } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Connection Failed"
-                                                                                     message:@"We couldn't get the currency values\n please try again later."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                    style:UIAlertActionStyleDefault
-                                                                  handler:nil];
-            [alertController addAction:defaultAction];
-            [self presentViewController:alertController animated:YES
-                             completion:nil];
+            [self errorMessage];
         }
     }];
+}
+
+- (void)errorMessage {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Connection Failed"
+                                                                             message:@"We couldn't get the currency values\n please try again later."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil];
+    [alertController addAction:defaultAction];
+    [self presentViewController:alertController animated:YES
+                     completion:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+
 
 @end

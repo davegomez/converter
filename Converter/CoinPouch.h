@@ -10,7 +10,8 @@
 
 @interface CoinPouch : NSObject
 
-- (instancetype)initWithCompletionBlock:(void (^)(BOOL success))completion;
+- (instancetype)init;
+- (void)fetchDataWithCompletionBlock: (void (^)(BOOL success))completion;
 - (NSDecimalNumber *)convertWith:(NSString *)value for:(NSString *)code;
 
 @end

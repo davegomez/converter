@@ -12,30 +12,41 @@
 @interface CoinPouch ()
 
 @property (nonatomic, readonly) NSDictionary *coins;
+@property (nonatomic, readonly) NSTimeInterval interval;
 
 @end
 
 @implementation CoinPouch
 
-- (instancetype)initWithCompletionBlock:(void (^)(BOOL success))completion {
+- (instancetype)init {
     self = [super init];
     
-    // Fetch the currency data from the Open Exchange Rates REST API
     if (self) {
-        [[APIManager sharedManager] GET:@"latest.json?app_id=8d42d42070c74c04921be6e339b529b0"
-                             parameters:nil
-                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                    // Fill the pouch dictionary with all the available currencies
-                                    _coins = [responseObject objectForKey:@"rates"];
-                                    completion(YES);
-                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    // Error handling
-                                    NSLog(@"Error: %@", error);
-                                    completion(NO);
-                                }];
+        [self fetchDataWithCompletionBlock:^(BOOL success) {
+            if (success) {
+                NSLog(@"Connection Succeed");
+            } else {
+                NSLog(@"Connection Failed");
+            }
+        }];
     }
     
     return self;
+}
+
+- (void)fetchDataWithCompletionBlock: (void (^)(BOOL success))completion {
+    // Fetch the currency data from the Open Exchange Rates REST API
+    [[APIManager sharedManager] GET:@"latest.json?app_id=8d42d42070c74c04921be6e339b529b0"
+                         parameters:nil
+                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                // Fill the pouch dictionary with all the available currencies
+                                _coins = [responseObject objectForKey:@"rates"];
+                                completion(YES);
+                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                // Error handling
+                                NSLog(@"Error: %@", error);
+                                completion(NO);
+                            }];
 }
 
 // Takes the value to convert and the country code, computes the value,
